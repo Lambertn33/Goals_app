@@ -1,10 +1,12 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Pressable } from "react-native";
 
-const GoalItem = ({ goal }) => {
+const GoalItem = ({ goal, onPress }) => {
   return (
-    <View style={styles.goalItemContainer}>
-      <Text style={styles.goalItem}>{goal.description}</Text>
-    </View>
+    <Pressable onPress={onPress.bind(null, goal.id)}>
+      <View style={styles.goalItemContainer}>
+        <Text style={styles.goalItem}>{goal.description}</Text>
+      </View>
+    </Pressable>
   );
 };
 
@@ -14,7 +16,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 6,
     alignItems: "center",
-    marginBottom: 12
+    marginBottom: 12,
   },
   goalItem: {
     color: "#fff",

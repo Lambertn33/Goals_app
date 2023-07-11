@@ -5,12 +5,19 @@ import GoalsList from "./components/goals/GoalsList";
 
 export default function App() {
   const [goals, setGoals] = useState([]);
+
   const addGoalHandler = (newGoal) =>
     setGoals((prevGoals) => [...prevGoals, newGoal]);
+
+  const deleteGoalHandler = (id) => {
+    const filteredGoals = goals.filter((goal) => goal.id !== id);
+    setGoals(filteredGoals);
+  };
+
   return (
     <View style={styles.appContainer}>
       <GoalForm onPress={addGoalHandler} />
-      <GoalsList goals={goals} />
+      <GoalsList goals={goals} onDeleteHandler={deleteGoalHandler} />
     </View>
   );
 }
