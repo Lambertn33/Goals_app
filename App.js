@@ -10,8 +10,8 @@ export default function App() {
     setGoals((prevGoals) => [...prevGoals, newGoal]);
 
   const deleteGoalHandler = (id) => {
-    // const filteredGoals = goals.filter((goal) => goal.id !== id);
-    // setGoals(filteredGoals);
+    const filteredGoals = goals.filter((goal) => goal.id !== id);
+    setGoals(filteredGoals);
   };
 
   return (
